@@ -3,6 +3,7 @@ bidict
 Django
 django-api-view
 django-cors-headers
+django-heroku
 dnspython
 eventlet
 greenlet
