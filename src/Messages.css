@@ -1,0 +1,377 @@
+.tabs 
+{
+    position: relative;
+}
+.tabs-ul 
+{
+    background-color: rgb(255, 255, 255);
+    overflow-y:auto;
+    max-height: 598px;
+    min-height: 598px;
+    border-right: 1px solid rgba(0, 0, 0, 0.111);
+}
+#tabs-messages .nav-tabs li .nav-link.active 
+{
+    background-color: rgb(235, 235, 235);
+} 
+#tabs-messages .nav-tabs li .nav-link:hover 
+{
+    background-color: rgb(235, 235, 235);
+    color: #000;   
+} 
+#tabs-messages .nav-tabs li a 
+{
+    color: #000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+#tabs-messages .nav-tabs li 
+{
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+#tabs-messages .nav-tabs .person img
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+@media screen and (max-width :382px){
+    #tabs-messages .nav-tabs .person img 
+    {
+        width: 80px;
+        height: 10px;
+    }
+}
+#tabs-messages .nav-tabs .person .info-sec section .msg-last 
+{
+    font-size:16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#tabs-messages .nav-tabs .person .info-sec section h5 
+{
+    font-size: 16px;
+    text-transform: capitalize;
+    margin-left: 5px;
+}
+#tabs-messages .nav-tabs .person .info-sec section 
+{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+#tabs-messages .nav-tabs .person .info-sec 
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+#tabs-messages .nav-tabs .person 
+{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+}
+#tabs-messages .nav-tabs .unseen-nav-item 
+{
+    font-weight: 600;
+}
+#tabs-messages .nav-tabs .unseen-nav-item h5
+{
+    font-weight: 600;
+}
+#tabs-messages .nav-tabs 
+{
+    position: relative;
+    /* width:320px; */
+}
+/* style of tab content */
+
+#tabs-messages .tab-content .row .msg-body .msg-img img  
+{
+    width: 40px;
+    margin-left: 5px;
+    border-radius:50%;
+    margin-top: 5px;
+}
+#tabs-messages .tab-content .row .msg-body .msg-list .msg-content:first-child 
+{
+    margin-top: 4px;
+} 
+#tabs-messages .tab-content .row .msg-body .msg-list .msg-content 
+{
+    background-color: #fff;
+    margin-top: 4px;
+    border-radius: 10px;
+    max-width: 340px;
+    padding:3px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#tabs-messages .tab-content .row .msg-body .msg-list .msg-container .msg-time 
+{
+    margin-right: 5px;
+}
+#tabs-messages .tab-content .row .msg-body .msg-list .msg-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+} 
+#tabs-messages .tab-content .my-msg .msg-body .msg-list 
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 10px;
+}
+#tabs-messages .tab-content .row:last-child 
+{
+    margin-bottom: 20px;
+} 
+#tabs-messages .tab-content .row:first-child 
+{
+    margin-top: 20px;
+}
+#tabs-messages .tab-content .row .msg-body 
+{
+    position: relative;
+    /* background-color: rgb(240, 240, 240); */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-left: 20px;
+} 
+/* this the style of the his messages div in that app */
+#tabs-messages .tab-content .row .msg-body .msg-img img  
+{
+    width: 40px;
+    margin-right: 5px;
+    border-radius:50%;
+    margin-top: 5px;
+}
+#tabs-messages .tab-content .his-msg .msg-body .msg-list .msg-content 
+{
+    background-color: rgb(228, 228, 228);
+    margin-top: 4px;
+    border-radius: 10px;
+    max-width: 340px;
+    color:#000;
+    padding: 5px;
+}
+#tabs-messages .tab-content .row .msg-body .msg-list .msg-container .msg-time 
+{
+    margin-left: 5px;
+}
+#tabs-messages .tab-content .his-msg .msg-body .msg-list .msg-container 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+} 
+#tabs-messages .tab-content .his-msg .msg-body .msg-list 
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-right: 10px;
+}
+#tabs-messages .tab-content .his-msg .msg-body 
+{
+    position: relative;
+    /* background-color: rgb(240, 240, 240); */
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+} 
+#tabs-messages .tab-content .his-msg 
+{
+    display: flex;
+    justify-content: flex-end;
+} 
+/* end of that part */
+#tabs-messages .tab-content .row
+{
+    position:relative;
+    width: 100%;
+}
+#tabs-messages .tab-content .msgs-container 
+{
+    min-height: 440px;
+    max-height: 440px;
+    overflow-y:auto;
+    background-color: rgb(247, 247, 247);
+}
+#tabs-messages .tab-content 
+{
+    max-height: 598px;
+    min-height: 598px;
+    overflow-y: hidden;
+}
+@media screen and (min-width:1126px) {
+    #tabs-messages .nav-tabs 
+    {
+        width: 317px;
+    }
+}
+@media screen and (max-width:1125px) {
+    #tabs-messages .nav-tabs .person .img-sec img
+    {
+        width: 60px;
+        height: 40px;
+        border-radius: 50%;
+    }
+}
+@media screen and (max-width:870px){
+    #tabs-messages .nav-tabs .person .info-sec .msg-last 
+    {
+        display: none;
+    }
+    #tabs-messages .nav-tabs .person .info-sec .info-date 
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width:740px){
+    #tabs-messages .nav-tabs .person .info-sec 
+    {
+        display: none;
+    }
+    #tabs-messages .nav-tabs .person img
+    {
+        width: 60px;
+        height: 50px;
+        border-radius:50%;
+    }
+}
+/* this the part of the media related to the form send the message */
+.input-send-msg 
+{
+    min-width: 93%;
+}
+@media screen and (max-width :775px){
+    .input-send-msg 
+    {
+        min-width: 90%;
+    }
+}
+/* end of this part */
+/* this the part of putting the top date of a list of a messages at the top of it  */
+.date-msgs:first-child 
+{
+    margin-top: 30px;
+} 
+.date-msgs 
+{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    /* color: rgba(245, 85, 85, 0.576); */
+    color:#000;
+    background-color: rgba(148, 148, 148, 0.207);
+    height: 1px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* border-bottom: 1px solid rgba(194, 193, 193, 0.474); */
+}
+.date-number 
+{
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translateY(-5px);
+    line-height: 10px;
+    z-index: 1;
+    background-color: rgb(247, 247, 247);
+    width: 80px;
+}
+/* end of that part */
+/* this the part of the style of the chat-header in that app */
+.main-data img 
+{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.main-data .data-container section p 
+{
+    color: black;
+    line-height: 10px;
+}
+.main-data .data-container section h5 
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-transform: capitalize;
+}
+.main-data .data-container section 
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.main-data .data-container 
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+}
+.main-data 
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 10px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.097);
+    /* border-right: 1px solid rgb(247, 247, 247);
+    border-left: 1px solid rgb(247, 247, 247); */
+}
+/* end of this part of this style */
+/* style of the scoller bar in that app */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(245, 85, 85, 0.576); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 85, 85, 0.576); 
+  }
