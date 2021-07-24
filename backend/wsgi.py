@@ -17,7 +17,7 @@ from datetime import datetime
 db=sqlite3.connect('app2.db', check_same_thread=False)
 cur=db.cursor()
 # end of this part
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app2.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
 application = get_wsgi_application()
 
