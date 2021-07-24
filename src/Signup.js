@@ -61,7 +61,7 @@ const Signup=()=>{
                 setPassword('')
                 setUserName('')
                 setPio('')
-                window.location.href="http://localhost:3000/signup"
+                window.location.href="https://muhsocialapp.herokuapp.com/signup"
             }
             else {
                 setState(data.process)

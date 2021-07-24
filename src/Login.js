@@ -29,7 +29,7 @@ const Login=()=>{
             console.log(localStorage.getItem('email'))
             setEmail('')
             setPassword('')
-            window.location.href="https://muhsocial.herokuapp.com/login"
+            window.location.href="https://muhsocialapp.herokuapp.com/login"
         }
         else {
             setState(data.process)
