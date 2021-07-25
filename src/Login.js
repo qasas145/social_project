@@ -29,7 +29,8 @@ const Login=()=>{
             console.log(localStorage.getItem('email'))
             setEmail('')
             setPassword('')
-            window.location.href="https://muhsocialapp.herokuapp.com/login"
+            return <Redirect to={`/${url}`}/>
+            // window.location.href="https://muhsocialapp.herokuapp.com/login"
         }
         else {
             setState(data.process)

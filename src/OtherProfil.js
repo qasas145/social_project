@@ -434,7 +434,8 @@ const OtherProfil=()=>{
         setSearchList(data)
     }
     const ReloadPage=(url)=>{
-        window.location.href=`https://muhsocialapp.herokuapp.com/${url}`
+        // window.location.href=`https://muhsocialapp.herokuapp.com/${url}`
+        return <Redirect to={`/${url}`}/>
     }
     const SearchR=useCallback(()=>{
         if (searchList.length>1 || searchList.length==1) {

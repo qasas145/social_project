@@ -61,7 +61,8 @@ const Signup=()=>{
                 setPassword('')
                 setUserName('')
                 setPio('')
-                window.location.href="https://muhsocialapp.herokuapp.com/signup"
+                return <Redirect to={`/${url}`}/>
+                // window.location.href="https://muhsocialapp.herokuapp.com/signup"
             }
             else {
                 setState(data.process)
