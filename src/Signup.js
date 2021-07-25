@@ -69,7 +69,7 @@ const Signup=()=>{
             }
         }
     }
-    const uploadProfilImage=(e)=>{\
+    const uploadProfilImage=(e)=>{
         const [file]=e.target.files;
         const reader=new FileReader();
         Resizer.imageFileResizer(
