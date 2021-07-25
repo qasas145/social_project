@@ -12,7 +12,7 @@ const Login=()=>{
     const[state, setState]=useState('')
     let checkLogin=localStorage.getItem('email')
     const loginFunction=async()=>{
-        const response=await fetch('login/', {
+        const response=await fetch(endpoint+'login/', {
             method :"POST",
             headers :{
                 "content-type" :"application/json",
@@ -29,7 +29,7 @@ const Login=()=>{
             console.log(localStorage.getItem('email'))
             setEmail('')
             setPassword('')
-            return <Redirect to={`/${url}`}/>
+            return <Redirect to={`/login`}/>
             // window.location.href="https://muhsocialapp.herokuapp.com/login"
         }
         else {

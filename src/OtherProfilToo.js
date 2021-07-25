@@ -9,7 +9,7 @@ import endpoint from "./EndPoint";
 import Modal from "react-awesome-modal"
 import { useParams } from "react-router"
 import io from "socket.io-client"
-const OtherProfil=()=>{
+const OtherProfilToo=()=>{
     const{checkLogin}=useParams()
     // the date and the time in that app
     let dateTime=new Date();
@@ -370,7 +370,7 @@ const OtherProfil=()=>{
     const MakeProfilEmailNotShownAsLinkInComments=({data})=>{
         if (data.email==emailLogin) return <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
         else {
-            return <Link to={`profile-${data.email}`}>
+            return <Link to={`profil-${data.email}`}>
                 <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
             </Link>
         }
@@ -438,7 +438,7 @@ const OtherProfil=()=>{
             return (
                 searchList.map((data)=>{
                     return (
-                        <li key={data.id} className="nav-item border"><Link  to={`profile-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
+                        <li key={data.id} className="nav-item border"><Link  to={`profil-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
                     )
                 })
             )
@@ -663,4 +663,4 @@ const OtherProfil=()=>{
         </div>
     )
 }
-export default OtherProfil;
+export default OtherProfilToo;

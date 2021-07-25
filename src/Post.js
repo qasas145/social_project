@@ -23,7 +23,7 @@ const Post=()=>{
     let emailLogin=localStorage.getItem('email')
     const {postId}=useParams()
     const getDataForLoginEmail=async()=>{
-        const response=await fetch('profildata/', {
+        const response=await fetch(endpoint+'profildata/', {
             method :"POST",
             headers:{
                 "Content-Type" :"application/json"
@@ -36,7 +36,7 @@ const Post=()=>{
         setData2(data2)
     }
     const getPost=async()=>{
-        const response=await fetch('getpost/', {
+        const response=await fetch(endpoint+'getpost/', {
             method :"POST",
             headers :{
                 "Content-Type": "application/json"
@@ -79,7 +79,7 @@ const Post=()=>{
         })
     }
     const AddComment=async(postId, emailOwnerPost)=>{
-        const response=await fetch('addcomment/', {
+        const response=await fetch(endpoint+'addcomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -100,7 +100,7 @@ const Post=()=>{
     const addLike=async(email_owner_post, post_id, el)=>{
         // this the try of making the heart get blue when clicked on it and the next time when clicked on it get red
         // end of that try of the making the button get colored
-        const response=await fetch('addlike/', {
+        const response=await fetch(endpoint+'addlike/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -136,7 +136,7 @@ const Post=()=>{
         }
     }
     const savePost=async(postId)=>{
-        const response=await fetch('savepost/', {
+        const response=await fetch(endpoint+'savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -151,7 +151,7 @@ const Post=()=>{
         setAlertData([])
     }
     const unSavePostSavePosts=async(postId)=>{
-        const response=await fetch('savepost/', {
+        const response=await fetch(endpoint+'savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -178,7 +178,7 @@ const Post=()=>{
     }
     const sharePostFunctionAsync=async(postId)=>{
         openModalProgress();
-        const response=await fetch('sharepost/', {
+        const response=await fetch(endpoint+'sharepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -340,7 +340,7 @@ const Post=()=>{
         else return ""
     }
     const deleteComment=async(year, month, day, hour, minute, second, postId)=>{
-        const response=await fetch('deletecomment/', {
+        const response=await fetch(endpoint+'deletecomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -362,7 +362,7 @@ const Post=()=>{
     }
     // this the part of the searching function in that app
     const searchF=async(search)=>{
-        const response=await fetch('search/', {
+        const response=await fetch(endpoint+'search/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"

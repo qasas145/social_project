@@ -8,6 +8,7 @@ import Login from './Login';
 import Signup from './Signup';
 import Profil from "./Profil";
 import OtherProfil from "./OtherProfil";
+import OtherProfilToo from "./OtherProfilToo";
 import Logout from "./Logout";
 import Post from "./Post";
 import Messages from "./Messages";
@@ -24,6 +25,7 @@ const App=()=>{
           <Route path="/signup" component={Signup} />
           <Route path="/profil" component={Profil}/>
           <Route path="/profil-:checkLogin" component={OtherProfil}/>
+          <Route path="/profile-:checkLogin" component={OtherProfilToo}/>
           <Route path="/post-:postId" component={Post} />
         </Switch>
       </div>

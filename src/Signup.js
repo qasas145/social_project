@@ -61,7 +61,7 @@ const Signup=()=>{
                 setPassword('')
                 setUserName('')
                 setPio('')
-                return <Redirect to={`/${url}`}/>
+                return <Redirect to={`/signup`}/>
                 // window.location.href="https://muhsocialapp.herokuapp.com/signup"
             }
             else {
@@ -69,7 +69,7 @@ const Signup=()=>{
             }
         }
     }
-    const uploadProfilImage=(e)=>{
+    const uploadProfilImage=(e)=>{\
         const [file]=e.target.files;
         const reader=new FileReader();
         Resizer.imageFileResizer(
