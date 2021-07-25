@@ -1,2 +1,2 @@
-const endpoint="https://127.0.0.1:8000/"
+const endpoint="https://muhsocialapp.herokuapp.com/"
 export default endpoint;
