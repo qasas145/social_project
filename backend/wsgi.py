@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 import sqlite3
 import os
-# import eventlet
+import eventlet
 # import gevent
 from gevent import pywsgi
 import socketio
