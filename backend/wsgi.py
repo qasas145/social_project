@@ -73,5 +73,5 @@ def sendmsg(data, datamain) :
 
 # eventlet.wsgi.server(eventlet.listen(('', 8000)), application)
 
-pywsgi.WSGIServer(('', 8000), application).serve_forever()
+# pywsgi.WSGIServer(('', 8000), application).serve_forever()
 # pywsgi.WSGIServer(('', 8000), app).serve_forever()
