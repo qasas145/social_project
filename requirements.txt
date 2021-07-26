@@ -5,10 +5,9 @@ django-api-view
 django-cors-headers
 django-heroku
 dnspython
-eventlet
+eventlet====0.30.2
 greenlet
 gevent
-gevent-websocket
 djangorestframework
 python-engineio
 python-socketio
