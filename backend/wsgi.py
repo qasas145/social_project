@@ -8,8 +8,9 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 import sqlite3
 import os
-import eventlet
-import gevent
+# import eventlet
+# import gevent
+from gevent import pywsgi
 import socketio
 from django.core.wsgi import get_wsgi_application
 # this the part of making that file like the modelClasses file that can't be imported for a problem
@@ -71,3 +72,6 @@ def sendmsg(data, datamain) :
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 # eventlet.wsgi.server(eventlet.listen(('', 8000)), application)
+
+pywsgi.WSGIServer(('', 8000), application).serve_forever()
+# pywsgi.WSGIServer(('', 8000), app).serve_forever()
