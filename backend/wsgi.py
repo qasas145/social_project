@@ -22,7 +22,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
 application = get_wsgi_application()
 
-sio = socketio.Server(async_mode='gevent',cors_allowed_origins='*', logger=True, engineio_logger=True)
+sio = socketio.Server(async_mode='eventlet',cors_allowed_origins='*', logger=True, engineio_logger=True)
 
 application = socketio.WSGIApp(sio, application)
 
@@ -71,7 +71,7 @@ def sendmsg(data, datamain) :
 # end of this part of the functions like the modelClasses in that app
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-# eventlet.wsgi.server(eventlet.listen(('', 8000)), application)
+eventlet.wsgi.server(eventlet.listen(('', 8000)), application)
 
 # pywsgi.WSGIServer(('', 8000), application).serve_forever()
 # pywsgi.WSGIServer(('', 8000), app).serve_forever()
