@@ -15,6 +15,7 @@ import socketio
 from django.core.wsgi import get_wsgi_application
 # this the part of making that file like the modelClasses file that can't be imported for a problem
 from datetime import datetime
+from geventwebsocket.handler import WebSocketHandler
 db=sqlite3.connect('app2.db', check_same_thread=False)
 cur=db.cursor()
 # end of this part
@@ -22,7 +23,7 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'backend.settings')
 
 application = get_wsgi_application()
 
-sio = socketio.Server(async_mode='eventlet',cors_allowed_origins='*', logger=True, engineio_logger=True)
+sio = socketio.Server(async_mode='gevent',cors_allowed_origins='*', logger=True, engineio_logger=True)
 
 application = socketio.WSGIApp(sio, application)
 
@@ -70,3 +71,10 @@ def sendmsg(data, datamain) :
         })
 # end of this part of the functions like the modelClasses in that app
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+# eventlet.wsgi.server(eventlet.listen(('', 8000)), application)
+
+# pywsgi.WSGIServer(('', 8000), application).serve_forever()
+pywsgi.WSGIServer(('', 8000), application, 
+    handler_class=WebSocketHandler).serve_forever()
+# pywsgi.WSGIServer(('', 8000), app).serve_forever()

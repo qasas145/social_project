@@ -8,6 +8,7 @@ dnspython
 eventlet
 greenlet
 gevent
+gevent-websocket
 djangorestframework
 python-engineio
 python-socketio
