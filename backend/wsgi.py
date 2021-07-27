@@ -77,4 +77,4 @@ def sendmsg(data, datamain) :
 # pywsgi.WSGIServer(('', 8000), application)
 # pywsgi.WSGIServer(('', 8000), application, 
     # handler_class=WebSocketHandler).serve_forever()
-pywsgi.WSGIServer(('', 8000), application).serve_forever()
+# pywsgi.WSGIServer(('', 8000), application).serve_forever()

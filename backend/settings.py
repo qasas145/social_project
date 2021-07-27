@@ -140,9 +140,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # # Whitelist localhost:3000 because that's where frontend will be served
-# CORS_ORIGIN_WHITELIST = [
-#     'https://localhost:3000',
-# ]
+CORS_ORIGIN_WHITELIST = [
+    'http://127.0.0.1:8000',
+]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
