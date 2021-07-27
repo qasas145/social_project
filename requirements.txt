@@ -5,7 +5,7 @@ django-api-view
 django-cors-headers
 django-heroku
 dnspython
-gunicorn==20.1.0
+gunicorn
 python-socketio
 python-engineio
 eventlet==0.30.2
