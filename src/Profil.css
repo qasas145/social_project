@@ -1,4 +1,10 @@
-
+@media screen and (max-width:428px){
+    .upload-image-div 
+    {
+        margin-left: 10px;
+        width :130px;
+    }
+}
 .upload-image-div input 
 {
     position: absolute;

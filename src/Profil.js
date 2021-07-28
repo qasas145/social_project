@@ -106,7 +106,7 @@ const Profil=()=>{
         setContent('')
     }
     const getData=async()=>{
-        const response=await fetch('profildata/', {
+        const response=await fetch(endpoint+'profildata/', {
             method :"POST",
             headers:{
                 "Content-Type" :"application/json"
@@ -119,7 +119,7 @@ const Profil=()=>{
         setData(data)
     }
     const getPosts=async()=>{
-        const response=await fetch('getposts/', {
+        const response=await fetch(endpoint+'getposts/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -132,7 +132,7 @@ const Profil=()=>{
         setPosts(data)
     }
     const getSavedPosts=async()=>{
-        const response=await fetch('getsavedposts/', {
+        const response=await fetch(endpoint+'getsavedposts/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -235,7 +235,7 @@ const Profil=()=>{
                 croppedAreaPexels
             )
             setCroppedImage(croppedImage)
-            const response=await fetch('editprofilimage/', {
+            const response=await fetch(endpoint+'editprofilimage/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json"
@@ -255,7 +255,7 @@ const Profil=()=>{
     const addPost=async(e)=>{
         openModalProgress();
         closeModal();
-        const response=await fetch('addpost/', {
+        const response=await fetch(endpoint+'addpost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"appliaction/json"
@@ -275,7 +275,7 @@ const Profil=()=>{
     }
     const editName=async(e)=>{
         e.preventDefault();
-        const response=await fetch('editname/', {
+        const response=await fetch(endpoint+'editname/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -294,7 +294,7 @@ const Profil=()=>{
     }
     const editEmail=async(e)=>{
         e.preventDefault();
-        const response=await fetch('editemail/', {
+        const response=await fetch(endpoint+'editemail/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -313,7 +313,7 @@ const Profil=()=>{
     }
     const editUserName=async(e)=>{
         e.preventDefault();
-        const response=await fetch('editusername/', {
+        const response=await fetch(endpoint+'editusername/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -332,7 +332,7 @@ const Profil=()=>{
     }
     const editPio=async(e)=>{
         e.preventDefault();
-        const response=await fetch('editpio/', {
+        const response=await fetch(endpoint+'editpio/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -351,7 +351,7 @@ const Profil=()=>{
     }
     const editPassword=async(e)=>{
         e.preventDefault();
-        const response=await fetch('editpassword/', {
+        const response=await fetch(endpoint+'editpassword/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -370,7 +370,7 @@ const Profil=()=>{
     }
     // this the part related to the posts processing in that app while the commenting and the liking and the sharing 
     const AddComment=async(postId, emailOwnerPost)=>{
-        const response=await fetch('addcomment/', {
+        const response=await fetch(endpoint+'addcomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -391,7 +391,7 @@ const Profil=()=>{
     const addLike=async(email_owner_post, post_id, el)=>{
         // this the try of making the heart get blue when clicked on it and the next time when clicked on it get red
         // end of that try of the making the button get colored
-        const response=await fetch('addlike/', {
+        const response=await fetch(endpoint+'addlike/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -427,7 +427,7 @@ const Profil=()=>{
         }
     }
     const deletPost=async(postId)=>{
-        const response=await fetch('deletepost/', {
+        const response=await fetch(endpoint+'deletepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"applicaction/json"
@@ -474,7 +474,7 @@ const Profil=()=>{
         }
     }
     const editPost=async(postId)=>{
-        const response=await fetch('editpost/', {
+        const response=await fetch(endpoint+'editpost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -493,7 +493,7 @@ const Profil=()=>{
     }
     // end of that problem 
     const savePost=async(postId)=>{
-        const response=await fetch('savepost/', {
+        const response=await fetch(endpoint+'savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -508,7 +508,7 @@ const Profil=()=>{
         setAlertData([])
     }
     const unSavePostSavePosts=async(postId)=>{
-        const response=await fetch('savepost/', {
+        const response=await fetch(endpoint+'savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -535,7 +535,7 @@ const Profil=()=>{
     }
     const sharePostFunctionAsync=async(postId)=>{
         openModalProgress();
-        const response=await fetch('sharepost/', {
+        const response=await fetch(endpoint+'sharepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -740,7 +740,7 @@ const Profil=()=>{
     }
     // this the part of the searching function in that app
     const searchF=async(search)=>{
-        const response=await fetch('search/', {
+        const response=await fetch(endpoint+'search/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -819,7 +819,7 @@ const Profil=()=>{
         else return ""
     }
     const deleteComment=async(year, month, day, hour, minute, second, postId)=>{
-        const response=await fetch('deletecomment/', {
+        const response=await fetch(endpoint+'deletecomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -841,7 +841,7 @@ const Profil=()=>{
     }
     // this the part of getting the followers of the perosn in that app
     const getFollowersPersons=async()=>{
-        const response=await fetch('getfollowers/', {
+        const response=await fetch(endpoint+'getfollowers/', {
             method :"POST",
             headers :{
                 "Content-TYpe" :"application/json"
@@ -856,7 +856,7 @@ const Profil=()=>{
         openModalFollowers();
     }
     const getFollowngPersons=async()=>{
-        const response=await fetch('getfollowing/', {
+        const response=await fetch(endpoint+'getfollowing/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -872,7 +872,7 @@ const Profil=()=>{
     }
     const getFollowingEmails=async(id, email)=>{
         console.log(id, email)
-        const response=await fetch('getfollowingemails/', {
+        const response=await fetch(endpoint+'getfollowingemails/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -914,7 +914,7 @@ const Profil=()=>{
         }
     }
     const followFunction=async(email, id)=>{
-        const response=await fetch('follow/', {
+        const response=await fetch(endpoint+'follow/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
