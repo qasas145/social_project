@@ -1050,7 +1050,7 @@ const Profil=()=>{
                                     {/* this the part related to the model of the profil data edit in that app */}
                                     <Modal visible={visibleData} width="500px" onClickAway={closeModalData}>
                                         <div className="container">
-                                            <i style={{cursor :"pointer", fontSize :"14px"}} onClick={closeModal} className="fa fa-times text-muted" aria-hidden="true"></i>
+                                            <i style={{cursor :"pointer", fontSize :"14px"}} onClick={closeModalData} className="fa fa-times text-muted" aria-hidden="true"></i>
                                             <section className="border-top pt-2 border-bottom pb-2">
                                                 <img className='profilImageUploaded'  src={res.profilimage} style={{width :"200px"}}/>
                                                 <div className="btn btn-primary upload-image-div">

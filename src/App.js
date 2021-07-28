@@ -18,7 +18,6 @@ const App=()=>{
       <div>
         <Redirect to="/login"/>
         <Switch>
-          {/* <Route path="/home" component={Home}/> */}
           <Route path="/messages" component={Messages}/>
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout}/>
