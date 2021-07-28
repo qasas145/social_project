@@ -22,7 +22,7 @@ const Messages=()=>{
     var socket=io.connect(endpoint)
     // this the part of the searching function in that app
     const searchF=async(search)=>{
-        const response=await fetch(endpoint+'search/', {
+        const response=await fetch('search/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -51,7 +51,7 @@ const Messages=()=>{
         }
     },[searchList])
     const getRooms=async()=>{
-        const response=await fetch(endpoint+'getrooms/', {
+        const response=await fetch('getrooms/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -79,7 +79,7 @@ const Messages=()=>{
         
     }
     const seenMessagesFunction=async(email)=>{
-        const response=await fetch(endpoint+'seenmessages/', {
+        const response=await fetch('seenmessages/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -208,7 +208,7 @@ const Messages=()=>{
     // end of this part
     // this the part of deleting the chat in that app
     const deleteChat=async(data)=>{
-        const response=await fetch(endpoint+'deletechat/', {
+        const response=await fetch('deletechat/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -243,7 +243,7 @@ const Messages=()=>{
     }
     useEffect(()=>{
         socket.on('connect', async()=>{
-            const response=await fetch(endpoint+'updatestate/', {
+            const response=await fetch('updatestate/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json"
@@ -275,7 +275,7 @@ const Messages=()=>{
                 else {
                     getRooms();
                     // this the part of putting the component of the function getrooms in that area to confirm of the length of the rooms 
-                    const response=await fetch(endpoint+'getrooms/', {
+                    const response=await fetch('getrooms/', {
                         method :"POST",
                         headers :{
                             "Content-Type" :"application/json"
@@ -307,7 +307,7 @@ const Messages=()=>{
         })
         getRooms();
         window.addEventListener('beforeunload', async(e)=>{
-            const response=await fetch(endpoint+'updatestate/', {
+            const response=await fetch('updatestate/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json"
@@ -347,12 +347,12 @@ const Messages=()=>{
             <nav className="navbar navbar-expand-lg header-website  bg-white">
                 <Link to="/profil" className="navbar-brand text-dark">Social App</Link>
                 <button className="navbar-toggler" role="button" aria-controls="collapseExample" aria-label="Toggle navigation" aria-expanded="false" data-toggle="collapse" data-target="#collapseExample">
-                    <span className="fi-menu text-dark"></span>
+                    <i class="fa fa-bars text-dark" aria-hidden="true"></i>
                 </button>
                 <div className="collapse navbar-collapse" id="collapseExample">
                     <ul className="navbar-nav">
-                        <li className="nav-item"><Link to="/profil" className="nav-link"><i className="bi bi-person"></i></Link></li>
-                        <li className="nav-item"><Link to="/messages" className="nav-link"><i className="bi bi-briefcase"></i></Link></li>
+                        <li className="nav-item"><Link to="/profil" className="nav-link"><i className="fa fa-user-o" aria-hidden="true"></i></Link></li>
+                        <li className="nav-item"><Link to="/messages" className="nav-link"><i className="fa fa-envelope-o" aria-hidden="true"></i></Link></li>
                         <li className="nav-item"><Link to="/logout" className="nav-link"><i className="fa fa-sign-in" aria-hidden="true"></i></Link></li>
                     </ul>
                     <div className="form-inline">

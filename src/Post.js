@@ -23,7 +23,7 @@ const Post=()=>{
     let emailLogin=localStorage.getItem('email')
     const {postId}=useParams()
     const getDataForLoginEmail=async()=>{
-        const response=await fetch(endpoint+'profildata/', {
+        const response=await fetch('profildata/', {
             method :"POST",
             headers:{
                 "Content-Type" :"application/json"
@@ -36,7 +36,7 @@ const Post=()=>{
         setData2(data2)
     }
     const getPost=async()=>{
-        const response=await fetch(endpoint+'getpost/', {
+        const response=await fetch('getpost/', {
             method :"POST",
             headers :{
                 "Content-Type": "application/json"
@@ -79,7 +79,7 @@ const Post=()=>{
         })
     }
     const AddComment=async(postId, emailOwnerPost)=>{
-        const response=await fetch(endpoint+'addcomment/', {
+        const response=await fetch('addcomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -100,7 +100,7 @@ const Post=()=>{
     const addLike=async(email_owner_post, post_id, el)=>{
         // this the try of making the heart get blue when clicked on it and the next time when clicked on it get red
         // end of that try of the making the button get colored
-        const response=await fetch(endpoint+'addlike/', {
+        const response=await fetch('addlike/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -136,7 +136,7 @@ const Post=()=>{
         }
     }
     const savePost=async(postId)=>{
-        const response=await fetch(endpoint+'savepost/', {
+        const response=await fetch('savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -151,7 +151,7 @@ const Post=()=>{
         setAlertData([])
     }
     const unSavePostSavePosts=async(postId)=>{
-        const response=await fetch(endpoint+'savepost/', {
+        const response=await fetch('savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -178,7 +178,7 @@ const Post=()=>{
     }
     const sharePostFunctionAsync=async(postId)=>{
         openModalProgress();
-        const response=await fetch(endpoint+'sharepost/', {
+        const response=await fetch('sharepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -328,7 +328,7 @@ const Post=()=>{
     const MakeProfilEmailNotShownAsLinkInComments=({data})=>{
         if (data.email==emailLogin) return <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
         else {
-            return <Link onClick={(e)=>ReloadPage(`profil-${data.email}`)} to={`profil-${data.email}`}>
+            return <Link to={`profil-${data.email}`}>
                 <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
             </Link>
         }
@@ -340,7 +340,7 @@ const Post=()=>{
         else return ""
     }
     const deleteComment=async(year, month, day, hour, minute, second, postId)=>{
-        const response=await fetch(endpoint+'deletecomment/', {
+        const response=await fetch('deletecomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -362,7 +362,7 @@ const Post=()=>{
     }
     // this the part of the searching function in that app
     const searchF=async(search)=>{
-        const response=await fetch(endpoint+'search/', {
+        const response=await fetch('search/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -376,15 +376,12 @@ const Post=()=>{
         console.log(data)
         setSearchList(data)
     }
-    const ReloadPage=(url)=>{
-        window.location.href=`https://muhsocial.herokuapp.com/${url}`
-    }
     const SearchR=useCallback(()=>{
         if (searchList.length>1 || searchList.length==1) {
             return (
                 searchList.map((data)=>{
                     return (
-                        <li style={{zIndex :"4"}} key={data.id} className="nav-item border"><Link onClick={(e)=>ReloadPage(`profil-${data.email}`)} to={`profil-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
+                        <li style={{zIndex :"4"}} key={data.id} className="nav-item border"><Link to={`profil-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
                     )
                 })
             )
@@ -417,12 +414,12 @@ const Post=()=>{
             <nav className="navbar navbar-expand-lg header-website  bg-white">
                 <Link to="/profil" className="navbar-brand text-dark">Social App</Link>
                 <button className="navbar-toggler" role="button" aria-controls="collapseExample" aria-label="Toggle navigation" aria-expanded="false" data-toggle="collapse" data-target="#collapseExample">
-                    <span className="fi-menu text-dark"></span>
+                    <i class="fa fa-bars text-dark" aria-hidden="true"></i>
                 </button>
                 <div className="collapse navbar-collapse" id="collapseExample">
                     <ul className="navbar-nav">
-                        <li className="nav-item"><Link to="/profil" className="nav-link"><i className="bi bi-person"></i></Link></li>
-                        <li className="nav-item"><Link to="/messages" className="nav-link"><i className="bi bi-briefcase"></i></Link></li>
+                        <li className="nav-item"><Link to="/profil" className="nav-link"><i className="fa fa-user-o" aria-hidden="true"></i></Link></li>
+                        <li className="nav-item"><Link to="/messages" className="nav-link"><i className="fa fa-envelope-o" aria-hidden="true"></i></Link></li>
                         <li className="nav-item"><Link to="/logout" className="nav-link"><i className="fa fa-sign-in" aria-hidden="true"></i></Link></li>
                     </ul>
                     <div>
@@ -436,7 +433,7 @@ const Post=()=>{
             </nav>
             {data2.map((res)=>{
                 return(
-                    <Modal key={res.id} visible={visibleShare} width="400px" height="625px" effect="fadeInUp" onClickAway={closeModalShare}>
+                    <Modal key={res.id} visible={visibleShare} width="400px" height="auto" effect="fadeInUp" onClickAway={closeModalShare}>
                         <div className="post container postScrollYClass" id={`postScrollY-${postShared.idPostsInPublic}`}>
                             <div className="d-flex justify-content-start align-items-center flex-row">
                                 <img style={{width :"50px", borderRadius :"50%"}} src={res.profilimage}/>
@@ -483,9 +480,9 @@ const Post=()=>{
                             </section>
                             <GetSharedState post={post}/>
                             <ul className="row" id="l-c-s">
-                                <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.target)} className="col-4 likeBtn">{post.likes}<span className="fi-heart"></span></li>
-                                <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<span className="fi-comment-square"></span></li>
-                                <li onClick={(e)=>{setPostShared(post); openModalShare();}} className="col-4 border-0">{post.shares}<span className="fi-reload"></span></li>
+                                <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<i className="fa fa-heart" aria-hidden="true"></i></li>
+                                <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<i className="fa fa-comment-o" aria-hidden="true"></i></li>
+                                <li onClick={(e)=>{setPostShared(post); openModalShare(post.idPostsInPublic);}} className="col-4 border-0">{post.shares}<i className="fa fa-share" aria-hidden="true"></i></li>
                             </ul>
                             <form onSubmit={(e)=>{e.preventDefault();AddComment(post.idPostsInPublic, post.email)}} className="form form-inline w-100 pt-2 pb-2 border-top">
                                 <div className="container d-flex justify-content-center">

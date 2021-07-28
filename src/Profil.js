@@ -106,7 +106,7 @@ const Profil=()=>{
         setContent('')
     }
     const getData=async()=>{
-        const response=await fetch(endpoint+'profildata/', {
+        const response=await fetch('profildata/', {
             method :"POST",
             headers:{
                 "Content-Type" :"application/json"
@@ -119,7 +119,7 @@ const Profil=()=>{
         setData(data)
     }
     const getPosts=async()=>{
-        const response=await fetch(endpoint+'getposts/', {
+        const response=await fetch('getposts/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -132,7 +132,7 @@ const Profil=()=>{
         setPosts(data)
     }
     const getSavedPosts=async()=>{
-        const response=await fetch(endpoint+'getsavedposts/', {
+        const response=await fetch('getsavedposts/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -235,7 +235,7 @@ const Profil=()=>{
                 croppedAreaPexels
             )
             setCroppedImage(croppedImage)
-            const response=await fetch(endpoint+'editprofilimage/', {
+            const response=await fetch('editprofilimage/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json"
@@ -255,7 +255,7 @@ const Profil=()=>{
     const addPost=async(e)=>{
         openModalProgress();
         closeModal();
-        const response=await fetch(endpoint+'addpost/', {
+        const response=await fetch('addpost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"appliaction/json"
@@ -275,7 +275,7 @@ const Profil=()=>{
     }
     const editName=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editname/', {
+        const response=await fetch('editname/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -294,7 +294,7 @@ const Profil=()=>{
     }
     const editEmail=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editemail/', {
+        const response=await fetch('editemail/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -313,7 +313,7 @@ const Profil=()=>{
     }
     const editUserName=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editusername/', {
+        const response=await fetch('editusername/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -332,7 +332,7 @@ const Profil=()=>{
     }
     const editPio=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editpio/', {
+        const response=await fetch('editpio/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -351,7 +351,7 @@ const Profil=()=>{
     }
     const editPassword=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editpassword/', {
+        const response=await fetch('editpassword/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -370,7 +370,7 @@ const Profil=()=>{
     }
     // this the part related to the posts processing in that app while the commenting and the liking and the sharing 
     const AddComment=async(postId, emailOwnerPost)=>{
-        const response=await fetch(endpoint+'addcomment/', {
+        const response=await fetch('addcomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -391,7 +391,7 @@ const Profil=()=>{
     const addLike=async(email_owner_post, post_id, el)=>{
         // this the try of making the heart get blue when clicked on it and the next time when clicked on it get red
         // end of that try of the making the button get colored
-        const response=await fetch(endpoint+'addlike/', {
+        const response=await fetch('addlike/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -427,7 +427,7 @@ const Profil=()=>{
         }
     }
     const deletPost=async(postId)=>{
-        const response=await fetch(endpoint+'deletepost/', {
+        const response=await fetch('deletepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"applicaction/json"
@@ -474,7 +474,7 @@ const Profil=()=>{
         }
     }
     const editPost=async(postId)=>{
-        const response=await fetch(endpoint+'editpost/', {
+        const response=await fetch('editpost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -493,7 +493,7 @@ const Profil=()=>{
     }
     // end of that problem 
     const savePost=async(postId)=>{
-        const response=await fetch(endpoint+'savepost/', {
+        const response=await fetch('savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -508,7 +508,7 @@ const Profil=()=>{
         setAlertData([])
     }
     const unSavePostSavePosts=async(postId)=>{
-        const response=await fetch(endpoint+'savepost/', {
+        const response=await fetch('savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -535,7 +535,7 @@ const Profil=()=>{
     }
     const sharePostFunctionAsync=async(postId)=>{
         openModalProgress();
-        const response=await fetch(endpoint+'sharepost/', {
+        const response=await fetch('sharepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -740,7 +740,7 @@ const Profil=()=>{
     }
     // this the part of the searching function in that app
     const searchF=async(search)=>{
-        const response=await fetch(endpoint+'search/', {
+        const response=await fetch('search/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -819,7 +819,7 @@ const Profil=()=>{
         else return ""
     }
     const deleteComment=async(year, month, day, hour, minute, second, postId)=>{
-        const response=await fetch(endpoint+'deletecomment/', {
+        const response=await fetch('deletecomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -841,7 +841,7 @@ const Profil=()=>{
     }
     // this the part of getting the followers of the perosn in that app
     const getFollowersPersons=async()=>{
-        const response=await fetch(endpoint+'getfollowers/', {
+        const response=await fetch('getfollowers/', {
             method :"POST",
             headers :{
                 "Content-TYpe" :"application/json"
@@ -856,7 +856,7 @@ const Profil=()=>{
         openModalFollowers();
     }
     const getFollowngPersons=async()=>{
-        const response=await fetch(endpoint+'getfollowing/', {
+        const response=await fetch('getfollowing/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -872,7 +872,7 @@ const Profil=()=>{
     }
     const getFollowingEmails=async(id, email)=>{
         console.log(id, email)
-        const response=await fetch(endpoint+'getfollowingemails/', {
+        const response=await fetch('getfollowingemails/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -914,7 +914,7 @@ const Profil=()=>{
         }
     }
     const followFunction=async(email, id)=>{
-        const response=await fetch(endpoint+'follow/', {
+        const response=await fetch('follow/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -994,12 +994,12 @@ const Profil=()=>{
             <nav className="navbar navbar-expand-lg header-website  bg-white">
                 <Link to="/profil" className="navbar-brand text-dark">Social App</Link>
                 <button className="navbar-toggler" role="button" aria-controls="collapseExample" aria-label="Toggle navigation" aria-expanded="false" data-toggle="collapse" data-target="#collapseExample">
-                    <span className="fi-menu text-dark"></span>
+                    <i class="fa fa-bars text-dark" aria-hidden="true"></i>
                 </button>
                 <div className="collapse navbar-collapse" id="collapseExample">
                     <ul className="navbar-nav">
-                        <li className="nav-item"><Link to="/profil" className="nav-link"><i className="bi bi-person"></i></Link></li>
-                        <li className="nav-item"><Link to="/messages" className="nav-link"><i className="bi bi-briefcase"></i></Link></li>
+                        <li className="nav-item"><Link to="/profil" className="nav-link"><i className="fa fa-user-o" aria-hidden="true"></i></Link></li>
+                        <li className="nav-item"><Link to="/messages" className="nav-link"><i className="fa fa-envelope-o" aria-hidden="true"></i></Link></li>
                         <li className="nav-item"><Link to="/logout" className="nav-link"><i className="fa fa-sign-in" aria-hidden="true"></i></Link></li>
                     </ul>
                     <div>
@@ -1022,7 +1022,7 @@ const Profil=()=>{
                                 <div className="col-lg-4 profil-data d-flex flex-column justify-content-center">
                                     <section className="mt-lg-3 order-lg-1 order-1 ">
                                         <h2>{res.username}</h2>
-                                        <span className="fi-plus mr-lg-3 ml-lg-1 border rounded p-1" onClick={openModal}></span>
+                                        <i style={{cursor :"pointer"}} className="fa fa-plus mr-lg-3 ml-lg-1 border rounded p-1" aria-hidden="true" onClick={openModal}></i>
                                         <Link className="btn border" onClick={openModalData} to="/profil">Edit Profil</Link>
                                     </section>
                                     {/* this the modal of the post_shared in that app  */}
@@ -1050,7 +1050,7 @@ const Profil=()=>{
                                     {/* this the part related to the model of the profil data edit in that app */}
                                     <Modal visible={visibleData} width="500px" onClickAway={closeModalData}>
                                         <div className="container">
-                                            <span onClick={closeModalData} className="fi-x text-muted" style={{cursor :"pointer", fontSize :"14px"}}></span>
+                                            <i style={{cursor :"pointer", fontSize :"14px"}} onClick={closeModal} className="fa fa-times text-muted" aria-hidden="true"></i>
                                             <section className="border-top pt-2 border-bottom pb-2">
                                                 <img className='profilImageUploaded'  src={res.profilimage} style={{width :"200px"}}/>
                                                 <div className="btn btn-primary upload-image-div">
@@ -1176,7 +1176,7 @@ const Profil=()=>{
                             <div className="container">
                                 <div className='row border-bottom pb-2'>
                                     <div className="col-lg-12 d-flex justify-content-end align-items-center">
-                                        <span onClick={closeModal} className="fi-x text-muted" style={{cursor :"pointer", fontSize :"14px"}}></span>
+                                        <i style={{cursor :"pointer", fontSize :"14px"}} onClick={closeModal} className="fa fa-times text-muted" aria-hidden="true"></i>
                                     </div>
                                 </div>
                             </div>
@@ -1270,9 +1270,9 @@ const Profil=()=>{
                                                     </section>
                                                     <GetSharedState post={post}/>
                                                     <ul className="row" id="l-c-s">
-                                                        <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<span className="fi-heart"></span></li>
-                                                        <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<span className="fi-comment-square"></span></li>
-                                                        <li onClick={(e)=>{setPostShared(post); openModalShare();}} className="col-4 border-0"><span className="fi-reload"></span></li>
+                                                        <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<i className="fa fa-heart" aria-hidden="true"></i></li>
+                                                        <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<i className="fa fa-comment-o" aria-hidden="true"></i></li>
+                                                        <li onClick={(e)=>{setPostShared(post); openModalShare(post.idPostsInPublic);}} className="col-4 border-0">{post.shares}<i className="fa fa-share" aria-hidden="true"></i></li>
                                                     </ul>
                                                     <form onSubmit={(e)=>{e.preventDefault();AddComment(post.idPostsInPublic, post.email)}} className="form form-inline w-100 pt-2 pb-2 border-top">
                                                         <div className="container d-flex justify-content-center">
@@ -1340,9 +1340,9 @@ const Profil=()=>{
                                                     </section>
                                                     <GetSharedState post={post}/>
                                                     <ul className="row" id="l-c-s">
-                                                        <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<span className="fi-heart"></span></li>
-                                                        <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<span className="fi-comment-square"></span></li>
-                                                        <li className="col-4 border-0">{post.shares}<span className="fi-reload"></span></li>
+                                                        <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<i className="fa fa-heart" aria-hidden="true"></i></li>
+                                                        <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<i className="fa fa-comment-o" aria-hidden="true"></i></li>
+                                                        <li onClick={(e)=>{setPostShared(post); openModalShare(post.idPostsInPublic);}} className="col-4 border-0">{post.shares}<i className="fa fa-share" aria-hidden="true"></i></li>
                                                     </ul>
                                                     <form onSubmit={(e)=>{e.preventDefault();AddComment(post.idPostsInPublic, post.email)}} className="form form-inline w-100 pt-2 pb-2 border-top">
                                                         <div className="container  d-flex justify-content-center">
