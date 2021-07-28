@@ -328,7 +328,7 @@ const Post=()=>{
     const MakeProfilEmailNotShownAsLinkInComments=({data})=>{
         if (data.email==emailLogin) return <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
         else {
-            return <Link to={`profil-${data.email}`}>
+            return <Link onClick={(e)=>ReloadPage(`profil-${data.email}`)} to={`profil-${data.email}`}>
                 <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
             </Link>
         }
@@ -376,12 +376,15 @@ const Post=()=>{
         console.log(data)
         setSearchList(data)
     }
+    const ReloadPage=(url)=>{
+        window.location.href=`https://muhsocial.herokuapp.com/${url}`
+    }
     const SearchR=useCallback(()=>{
         if (searchList.length>1 || searchList.length==1) {
             return (
                 searchList.map((data)=>{
                     return (
-                        <li style={{zIndex :"4"}} key={data.id} className="nav-item border"><Link to={`profil-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
+                        <li style={{zIndex :"4"}} key={data.id} className="nav-item border"><Link onClick={(e)=>ReloadPage(`profil-${data.email}`)} to={`profil-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
                     )
                 })
             )
@@ -480,9 +483,9 @@ const Post=()=>{
                             </section>
                             <GetSharedState post={post}/>
                             <ul className="row" id="l-c-s">
-                                <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<i className="fa fa-heart" aria-hidden="true"></i></li>
-                                <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<i className="fa fa-comment-o" aria-hidden="true"></i></li>
-                                <li onClick={(e)=>{setPostShared(post); openModalShare(post.idPostsInPublic);}} className="col-4 border-0">{post.shares}<i className="fa fa-share" aria-hidden="true"></i></li>
+                                <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<i className="fa fa-heart ml-2" aria-hidden="true"></i></li>
+                                <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<i className="fa fa-comment-o ml-2" aria-hidden="true"></i></li>
+                                <li onClick={(e)=>{setPostShared(post); openModalShare(post.idPostsInPublic);}} className="col-4 border-0">{post.shares}<i className="fa fa-share ml-2" aria-hidden="true"></i></li>
                             </ul>
                             <form onSubmit={(e)=>{e.preventDefault();AddComment(post.idPostsInPublic, post.email)}} className="form form-inline w-100 pt-2 pb-2 border-top">
                                 <div className="container d-flex justify-content-center">
@@ -494,16 +497,16 @@ const Post=()=>{
                                 {post.commentList.map((data)=>{
                                     return (
                                         <div className="container border-top row" key={data.id}>
-                                            <div className="col-2 justify-content-center">
+                                            <div className="col-3 justify-content-center">
                                                 <MakeProfilEmailNotShownAsLinkInComments data={data}/>
                                             </div>
-                                            <div className="col-8 d-flex justify-content-start flex-column">
-                                                <h6 className="mt-2">{data.name}</h6>
-                                                <p className="text text-dark">
+                                            <div className="col-6 d-flex justify-content-start flex-column">
+                                                <h6 className="mt-2" style={{fontSize :"13px", textTransform :"capitalize"}}>{data.name}</h6>
+                                                <p style={{fontSize :"13px"}} className="text text-dark">
                                                     {data.comment}
                                                 </p>
                                             </div>
-                                            <div className="col-2 d-flex justify-content-start align-items-end flex-column">
+                                            <div className="col-3 d-flex justify-content-start align-items-end flex-column">
                                                 <div className="dateTimeAllDiv">
                                                     {calc.CalcT(parseInt(data.year), parseInt(data.month), parseInt(data.day), parseInt(data.hour), parseInt(data.minute), parseInt(data.second))}
                                                 </div>

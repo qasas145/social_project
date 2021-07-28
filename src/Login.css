@@ -84,6 +84,41 @@
     border-radius: 10px;
     background-color: #fff;
 }
+@media screen and (max-width:480px){
+    .login-sec form input 
+    {
+        width: 340px;
+    }
+    .login-sec form 
+    {
+        width: 360px;
+    }
+    .uploadProfilImage input 
+    {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom:0;
+        top: 0;
+        opacity: 0;
+        filter:alpha(opacity=0);
+        cursor: pointer;
+    }
+    .uploadProfilImage button 
+    {
+        position :relative;
+        width: 95%;
+    }
+    .uploadProfilImage 
+    {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+}
 /* this the part of the style of the upload form to the profil image in that app */
 .uploadProfilImage input 
 {

@@ -621,7 +621,7 @@ def getPostFunction(data) :
 # this the part of getting the saved posts in that app
 def getSavedPostsFunction(email) :
     cur=db.cursor()
-    savedposts=cur.execute("SELECT * FROM savedposts WHERE email=? ORDER BY post_id", [email]).fetchall()
+    savedposts=cur.execute("SELECT * FROM savedposts WHERE email=? ORDER BY post_id DESC", [email]).fetchall()
     list_posts=[]
     for post in savedposts :
         res=cur.execute("SELECT * FROM posts WHERE id=? ORDER BY id", [post[0]]).fetchall()

@@ -12,7 +12,7 @@ const Login=()=>{
     const[state, setState]=useState('')
     let checkLogin=localStorage.getItem('email')
     const loginFunction=async()=>{
-        const response=await fetch(endpoint+'login/', {
+        const response=await fetch('login/', {
             method :"POST",
             headers :{
                 "content-type" :"application/json",

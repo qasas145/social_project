@@ -19,6 +19,13 @@
 .calc-date-time .dateTimeDiv 
 {
     position: relative;
+    font-size: 20px;
+}
+@media screen and (max-width :454px){
+    .dateTimeDiv 
+    {
+        font-size: 14px;
+    }
 }
 .upload-image-div 
 {
@@ -349,7 +356,7 @@
 .dropdownO .dropdown-content li 
 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.111);
-    font-size: 17px;
+    font-size: 14px;
     text-align: center;
     padding: 6px 10px 6px 10px;
     cursor: pointer;

@@ -71,10 +71,3 @@ def sendmsg(data, datamain) :
         })
 # end of this part of the functions like the modelClasses in that app
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
-
-# eventlet.wsgi.server(eventlet.listen(('', 8000)), application)
-
-# pywsgi.WSGIServer(('', 8000), application)
-# pywsgi.WSGIServer(('', 8000), application, 
-    # handler_class=WebSocketHandler).serve_forever()
-# pywsgi.WSGIServer(('', 8000), application).serve_forever()
