@@ -298,7 +298,8 @@ const Post=()=>{
         })
     }
     const ReloadPageToGetPost=(url)=>{
-        window.location.href=`https://muhsocial.herokuapp.com/post-${url}`
+        window.location.reload();
+        // window.location.href=`https://muhsocial.herokuapp.com/post-${url}`
     }
     const GetSharedState=({post})=>{
         if (post.sharedState=="true") {
@@ -328,7 +329,7 @@ const Post=()=>{
     const MakeProfilEmailNotShownAsLinkInComments=({data})=>{
         if (data.email==emailLogin) return <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
         else {
-            return <Link onClick={(e)=>ReloadPage(`profil-${data.email}`)} to={`profil-${data.email}`}>
+            return <Link to={`profil-${data.email}`}>
                 <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
             </Link>
         }
@@ -376,15 +377,12 @@ const Post=()=>{
         console.log(data)
         setSearchList(data)
     }
-    const ReloadPage=(url)=>{
-        window.location.href=`https://muhsocial.herokuapp.com/${url}`
-    }
     const SearchR=useCallback(()=>{
         if (searchList.length>1 || searchList.length==1) {
             return (
                 searchList.map((data)=>{
                     return (
-                        <li style={{zIndex :"4"}} key={data.id} className="nav-item border"><Link onClick={(e)=>ReloadPage(`profil-${data.email}`)} to={`profil-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
+                        <li style={{zIndex :"4"}} key={data.id} className="nav-item border"><Link  to={`profil-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
                     )
                 })
             )
