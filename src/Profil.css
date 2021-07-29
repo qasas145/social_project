@@ -517,3 +517,9 @@
     flex-direction: row;
     height: 100px;
 }
+/* this the part of the comments in that app */
+.collapseComments .col-2 a img 
+{
+    width: 400px;
+}
+/* end of that part */

@@ -257,6 +257,13 @@
         border-radius:50%;
     }
 }
+@media screen and (max-width:400px){
+    #tabs-messages .nav-tabs .person img
+    {
+        width :40px;
+        height: 36px;
+    }
+}
 /* this the part of the media related to the form send the message */
 .input-send-msg 
 {

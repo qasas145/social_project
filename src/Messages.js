@@ -22,7 +22,7 @@ const Messages=()=>{
     var socket=io.connect(endpoint)
     // this the part of the searching function in that app
     const searchF=async(search)=>{
-        const response=await fetch('search/', {
+        const response=await fetch(endpoint+'search/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -51,7 +51,7 @@ const Messages=()=>{
         }
     },[searchList])
     const getRooms=async()=>{
-        const response=await fetch('getrooms/', {
+        const response=await fetch(endpoint+'getrooms/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -79,7 +79,7 @@ const Messages=()=>{
         
     }
     const seenMessagesFunction=async(email)=>{
-        const response=await fetch('seenmessages/', {
+        const response=await fetch(endpoint+'seenmessages/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -149,12 +149,22 @@ const Messages=()=>{
             const active=document.querySelector('.tab-content .active')
             const list=document.querySelectorAll('.tab-pane')
             if (list[0]==active) {
-                list[0].classList.remove('active')
-                list[1].classList.add('active')
+                if (list[1]==undefined) {
+                    console.log('the tab1 is undefined in that app')
+                }
+                else {
+                    list[0].classList.remove('active')
+                    list[1].classList.add('active')
+                }
             }
             if (tabs[0]==activeTab) {
-                tabs[0].classList.remove('active')
-                tabs[1].classList.add('active')
+                if (tabs[1]==undefined) {
+                    console.log('the tabcontent1 is undefiend in this app ')
+                }
+                else {
+                    tabs[0].classList.remove('active')
+                    tabs[1].classList.add('active')
+                }
             }
         }   
     }
@@ -208,7 +218,7 @@ const Messages=()=>{
     // end of this part
     // this the part of deleting the chat in that app
     const deleteChat=async(data)=>{
-        const response=await fetch('deletechat/', {
+        const response=await fetch(endpoint+'deletechat/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -243,7 +253,7 @@ const Messages=()=>{
     }
     useEffect(()=>{
         socket.on('connect', async()=>{
-            const response=await fetch('updatestate/', {
+            const response=await fetch(endpoint+'updatestate/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json"
@@ -275,7 +285,7 @@ const Messages=()=>{
                 else {
                     getRooms();
                     // this the part of putting the component of the function getrooms in that area to confirm of the length of the rooms 
-                    const response=await fetch('getrooms/', {
+                    const response=await fetch(endpoint+'getrooms/', {
                         method :"POST",
                         headers :{
                             "Content-Type" :"application/json"
@@ -307,7 +317,7 @@ const Messages=()=>{
         })
         getRooms();
         window.addEventListener('beforeunload', async(e)=>{
-            const response=await fetch('updatestate/', {
+            const response=await fetch(endpoint+'updatestate/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json"

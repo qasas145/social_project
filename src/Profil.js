@@ -106,7 +106,7 @@ const Profil=()=>{
         setContent('')
     }
     const getData=async()=>{
-        const response=await fetch(endpoint+'profildata/', {
+        const response=await fetch('profildata/', {
             method :"POST",
             headers:{
                 "Content-Type" :"application/json"
@@ -119,7 +119,7 @@ const Profil=()=>{
         setData(data)
     }
     const getPosts=async()=>{
-        const response=await fetch(endpoint+'getposts/', {
+        const response=await fetch('getposts/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -132,7 +132,7 @@ const Profil=()=>{
         setPosts(data)
     }
     const getSavedPosts=async()=>{
-        const response=await fetch(endpoint+'getsavedposts/', {
+        const response=await fetch('getsavedposts/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -235,7 +235,7 @@ const Profil=()=>{
                 croppedAreaPexels
             )
             setCroppedImage(croppedImage)
-            const response=await fetch(endpoint+'editprofilimage/', {
+            const response=await fetch('editprofilimage/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json"
@@ -255,7 +255,7 @@ const Profil=()=>{
     const addPost=async(e)=>{
         openModalProgress();
         closeModal();
-        const response=await fetch(endpoint+'addpost/', {
+        const response=await fetch('addpost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"appliaction/json"
@@ -275,7 +275,7 @@ const Profil=()=>{
     }
     const editName=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editname/', {
+        const response=await fetch('editname/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -294,7 +294,7 @@ const Profil=()=>{
     }
     const editEmail=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editemail/', {
+        const response=await fetch('editemail/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -313,7 +313,7 @@ const Profil=()=>{
     }
     const editUserName=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editusername/', {
+        const response=await fetch('editusername/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -332,7 +332,7 @@ const Profil=()=>{
     }
     const editPio=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editpio/', {
+        const response=await fetch('editpio/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -351,7 +351,7 @@ const Profil=()=>{
     }
     const editPassword=async(e)=>{
         e.preventDefault();
-        const response=await fetch(endpoint+'editpassword/', {
+        const response=await fetch('editpassword/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -370,7 +370,7 @@ const Profil=()=>{
     }
     // this the part related to the posts processing in that app while the commenting and the liking and the sharing 
     const AddComment=async(postId, emailOwnerPost)=>{
-        const response=await fetch(endpoint+'addcomment/', {
+        const response=await fetch('addcomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -391,7 +391,7 @@ const Profil=()=>{
     const addLike=async(email_owner_post, post_id, el)=>{
         // this the try of making the heart get blue when clicked on it and the next time when clicked on it get red
         // end of that try of the making the button get colored
-        const response=await fetch(endpoint+'addlike/', {
+        const response=await fetch('addlike/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -427,7 +427,7 @@ const Profil=()=>{
         }
     }
     const deletPost=async(postId)=>{
-        const response=await fetch(endpoint+'deletepost/', {
+        const response=await fetch('deletepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"applicaction/json"
@@ -474,7 +474,7 @@ const Profil=()=>{
         }
     }
     const editPost=async(postId)=>{
-        const response=await fetch(endpoint+'editpost/', {
+        const response=await fetch('editpost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -493,7 +493,7 @@ const Profil=()=>{
     }
     // end of that problem 
     const savePost=async(postId)=>{
-        const response=await fetch(endpoint+'savepost/', {
+        const response=await fetch('savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -508,7 +508,7 @@ const Profil=()=>{
         setAlertData([])
     }
     const unSavePostSavePosts=async(postId)=>{
-        const response=await fetch(endpoint+'savepost/', {
+        const response=await fetch('savepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -535,7 +535,7 @@ const Profil=()=>{
     }
     const sharePostFunctionAsync=async(postId)=>{
         openModalProgress();
-        const response=await fetch(endpoint+'sharepost/', {
+        const response=await fetch('sharepost/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -740,7 +740,7 @@ const Profil=()=>{
     }
     // this the part of the searching function in that app
     const searchF=async(search)=>{
-        const response=await fetch(endpoint+'search/', {
+        const response=await fetch('search/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -819,7 +819,7 @@ const Profil=()=>{
         else return ""
     }
     const deleteComment=async(year, month, day, hour, minute, second, postId)=>{
-        const response=await fetch(endpoint+'deletecomment/', {
+        const response=await fetch('deletecomment/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -841,7 +841,7 @@ const Profil=()=>{
     }
     // this the part of getting the followers of the perosn in that app
     const getFollowersPersons=async()=>{
-        const response=await fetch(endpoint+'getfollowers/', {
+        const response=await fetch('getfollowers/', {
             method :"POST",
             headers :{
                 "Content-TYpe" :"application/json"
@@ -856,7 +856,7 @@ const Profil=()=>{
         openModalFollowers();
     }
     const getFollowngPersons=async()=>{
-        const response=await fetch(endpoint+'getfollowing/', {
+        const response=await fetch('getfollowing/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -872,7 +872,7 @@ const Profil=()=>{
     }
     const getFollowingEmails=async(id, email)=>{
         console.log(id, email)
-        const response=await fetch(endpoint+'getfollowingemails/', {
+        const response=await fetch('getfollowingemails/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -914,7 +914,7 @@ const Profil=()=>{
         }
     }
     const followFunction=async(email, id)=>{
-        const response=await fetch(endpoint+'follow/', {
+        const response=await fetch('follow/', {
             method :"POST",
             headers :{
                 "Content-Type" :"application/json"
@@ -969,6 +969,12 @@ const Profil=()=>{
             
         )
     }
+    const goToTop=()=>{
+        window.scrollTo({
+            top :0,
+            behavior :"smooth"
+        })
+    }
     useEffect(()=>{
         getData();
         getPosts();
@@ -988,11 +994,35 @@ const Profil=()=>{
         getSavedEmails();
         modifyLength();
     },[posts, savedPosts, postShared])
+    useEffect(()=>{
+        window.addEventListener('beforeunload', async(e)=>{
+            const response=await fetch(endpoint+'updatestate/', {
+                method :"POST",
+                headers :{
+                    "Content-Type" :"application/json"
+                },
+                body :JSON.stringify({
+                    email :checkLogin,
+                    state:0,
+                    last_seen_year:dateTime.getFullYear(),
+                    last_seen_month:dateTime.getMonth()+1,
+                    last_seen_day:dateTime.getDate(),
+                    last_seen_hour:dateTime.getHours(),
+                    last_seen_minute:dateTime.getMinutes(),
+                    last_seen_second:dateTime.getSeconds(),
+                })
+            })
+            const data=await response.json();
+            console.log(data)
+            e.preventDefault();
+            e.returnValue="this the page of the messages in that app"
+        })
+    },[])
     if (checkLogin==null) return (<Redirect to="login"/>)
     return (
         <div>
             <nav className="navbar navbar-expand-lg header-website  bg-white">
-                <Link to="/profil" className="navbar-brand text-dark">Social App</Link>
+                <p style={{cursor :"pointer"}} onClick={goToTop} className="navbar-brand text-dark">Social App</p>
                 <button className="navbar-toggler" role="button" aria-controls="collapseExample" aria-label="Toggle navigation" aria-expanded="false" data-toggle="collapse" data-target="#collapseExample">
                     <i class="fa fa-bars text-dark" aria-hidden="true"></i>
                 </button>
@@ -1284,16 +1314,16 @@ const Profil=()=>{
                                                         {post.commentList.map((data)=>{
                                                             return (
                                                                 <div className="container border-top row" key={data.id}>
-                                                                    <div className="col-3 justify-content-center">
+                                                                    <div className="col-3 col-lg-2 justify-content-center">
                                                                         <MakeProfilEmailNotShownAsLinkInComments data={data}/>
                                                                     </div>
-                                                                    <div className="col-6 d-flex justify-content-start flex-column">
+                                                                    <div className="col-6 col-lg-8 d-flex justify-content-start flex-column">
                                                                         <h6 className="mt-2" style={{fontSize :"13px", textTransform :"capitalize"}}>{data.name}</h6>
                                                                         <p style={{fontSize :"13px"}} className="text text-dark">
                                                                         {data.comment}
                                                                         </p>
                                                                     </div>
-                                                                    <div className="col-3 d-flex justify-content-start align-items-end flex-column">
+                                                                    <div className="col-3 col-lg-2 d-flex justify-content-start align-items-end flex-column">
                                                                         <div className="dateTimeAllDiv">
                                                                             {calc.CalcT(parseInt(data.year), parseInt(data.month), parseInt(data.day), parseInt(data.hour), parseInt(data.minute), parseInt(data.second))}
                                                                         </div>
@@ -1354,16 +1384,16 @@ const Profil=()=>{
                                                         {post.commentList.map((data)=>{
                                                             return (
                                                                 <div className="container border-top row" key={data.id}>
-                                                                    <div className="col-2 justify-content-center">
+                                                                    <div className="col-3 col-lg-2 justify-content-center">
                                                                         <MakeProfilEmailNotShownAsLinkInComments data={data}/>
                                                                     </div>
-                                                                    <div className="col-8 d-flex justify-content-start flex-column">
+                                                                    <div className="col-6 col-lg-8 d-flex justify-content-start flex-column">
                                                                         <h6 className="mt-2">{data.name}</h6>
                                                                         <p className="text text-dark">
                                                                         {data.comment}
                                                                         </p>
                                                                     </div>
-                                                                    <div className="col-2 d-flex justify-content-start align-items-end flex-column">
+                                                                    <div className="col-3 col-lg-2 d-flex justify-content-start align-items-end flex-column">
                                                                         <div className="dateTimeAllDiv">
                                                                             {calc.CalcT(parseInt(data.year), parseInt(data.month), parseInt(data.day), parseInt(data.hour), parseInt(data.minute), parseInt(data.second))}
                                                                         </div>

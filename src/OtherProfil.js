@@ -370,7 +370,7 @@ const OtherProfil=()=>{
     const MakeProfilEmailNotShownAsLinkInComments=({data})=>{
         if (data.email==emailLogin) return <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
         else {
-            return <Link to={`profile-${data.email}`}>
+            return <Link to={`/profile-${data.email}`}>
                 <img style={{ borderRadius :"50%"}} className="img-fluid mt-2" src={data.profilImage}/>
             </Link>
         }
@@ -438,7 +438,7 @@ const OtherProfil=()=>{
             return (
                 searchList.map((data)=>{
                     return (
-                        <li key={data.id} className="nav-item border"><Link  to={`profile-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
+                        <li style={{zIndex :"2"}} key={data.id} className="nav-item border"><Link  to={`profile-${data.email}`} className="nav-link d-flex flex-row"><img className="img-fluid"  style={{width :"50px",}} src={data.profilimage}/><p className="text-dark text-center">{data.name}</p></Link></li>
                     )
                 })
             )
@@ -460,6 +460,12 @@ const OtherProfil=()=>{
         closeModalMsg();
         closeModalProgess();
     }
+    const goToTop=()=>{
+        window.scrollTo({
+            top :0,
+            behavior :"smooth"
+        })
+    }
     // end of this part in this app
     useEffect(()=>{
         getData();
@@ -475,6 +481,28 @@ const OtherProfil=()=>{
                 header_website[0].classList.remove('activeHeaderWebsite')
             }
         })
+        window.addEventListener('beforeunload', async(e)=>{
+            const response=await fetch(endpoint+'updatestate/', {
+                method :"POST",
+                headers :{
+                    "Content-Type" :"application/json"
+                },
+                body :JSON.stringify({
+                    email :emailLogin,
+                    state:0,
+                    last_seen_year:dateTime.getFullYear(),
+                    last_seen_month:dateTime.getMonth()+1,
+                    last_seen_day:dateTime.getDate(),
+                    last_seen_hour:dateTime.getHours(),
+                    last_seen_minute:dateTime.getMinutes(),
+                    last_seen_second:dateTime.getSeconds(),
+                })
+            })
+            const data=await response.json();
+            console.log(data)
+            e.preventDefault();
+            e.returnValue="this the page of the messages in that app"
+        })
     }, [alertData])
     useEffect(()=>{
         getTheLikedPosts();
@@ -482,12 +510,36 @@ const OtherProfil=()=>{
         modifyLength();
         // makeStyleOfSharedPostInSharingPostsModal();
     },[posts, postShared, visibleShare])
+    useEffect(()=>{
+        window.addEventListener('beforeunload', async(e)=>{
+            const response=await fetch(endpoint+'updatestate/', {
+                method :"POST",
+                headers :{
+                    "Content-Type" :"application/json"
+                },
+                body :JSON.stringify({
+                    email :emailLogin,
+                    state:0,
+                    last_seen_year:dateTime.getFullYear(),
+                    last_seen_month:dateTime.getMonth()+1,
+                    last_seen_day:dateTime.getDate(),
+                    last_seen_hour:dateTime.getHours(),
+                    last_seen_minute:dateTime.getMinutes(),
+                    last_seen_second:dateTime.getSeconds(),
+                })
+            })
+            const data=await response.json();
+            console.log(data)
+            e.preventDefault();
+            e.returnValue="this the page of the messages in that app"
+        })
+    },[])
     if (checkLogin==emailLogin) return (<Redirect to="/profil"/>)
     if (emailLogin==null) return (<Redirect to="/login"/>)
     return (
         <div>
             <nav className="navbar navbar-expand-lg header-website  bg-white">
-                <Link to="/profil" className="navbar-brand text-dark">Social App</Link>
+                <p style={{cursor :"pointer"}} onClick={goToTop} className="navbar-brand text-dark">Social App</p>
                 <button className="navbar-toggler" role="button" aria-controls="collapseExample" aria-label="Toggle navigation" aria-expanded="false" data-toggle="collapse" data-target="#collapseExample">
                     <i class="fa fa-bars text-dark" aria-hidden="true"></i>
                 </button>
@@ -538,7 +590,7 @@ const OtherProfil=()=>{
                                             <hr />
                                             <header>
                                                 <img style={{width :"50px"}} src={postShared.profilImage} className="img-fluid"/>
-                                                <h4>mohamed sayed</h4>
+                                                <h4>{postShared.name}</h4>
                                                 <p translate="yes" className="postPio">{postShared.pio}</p>
                                                 <p className="showMoreBtnS" onClick={(e)=>modifyLengthFunctionS(e.target, postShared.idPostsInPublic)}>show more ..</p>
                                             </header>
@@ -600,7 +652,7 @@ const OtherProfil=()=>{
                                                     </div>
                                                     <header>
                                                         <Link to={`profil-${post.email}`}><img src={post.profilImage} className="img-fluid"/></Link>
-                                                        <h4>mohamed sayed</h4>
+                                                        <h4>{post.name}</h4>
                                                         <p className="postPio">{post.pio}</p>
                                                         <p className="showMoreBtn" onClick={(e)=>{modifyLengthFunction(e.target, post.idPostsInPublic)}}>show more ..</p>
                                                     </header>
@@ -623,16 +675,16 @@ const OtherProfil=()=>{
                                                         {post.commentList.map((data)=>{
                                                             return (
                                                                 <div className="container border-top row" key={data.id}>
-                                                                    <div className="col-3 justify-content-center">
+                                                                    <div className="col-3 col-lg-2 justify-content-center">
                                                                         <MakeProfilEmailNotShownAsLinkInComments data={data}/>
                                                                     </div>
-                                                                    <div className="col-6 d-flex justify-content-start flex-column">
+                                                                    <div className="col-6 col-lg-8 d-flex justify-content-start flex-column">
                                                                         <h6 className="mt-2" style={{fontSize :"13px", textTransform :"capitalize"}}>{data.name}</h6>
                                                                         <p style={{fontSize :"13px"}} className="text text-dark">
                                                                         {data.comment}
                                                                         </p>
                                                                     </div>
-                                                                    <div className="col-3 d-flex justify-content-start align-items-end flex-column">
+                                                                    <div className="col-3 col-lg-2 d-flex justify-content-start align-items-end flex-column">
                                                                         <div className="dateTimeAllDiv">
                                                                             {calc.CalcT(parseInt(data.year), parseInt(data.month), parseInt(data.day), parseInt(data.hour), parseInt(data.minute), parseInt(data.second))}
                                                                         </div>
