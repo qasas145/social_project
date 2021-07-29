@@ -21,6 +21,7 @@ const OtherProfil=()=>{
     const[visibleShare, setVisibleShare]=useState(false)
     const[data, setData]=useState([])
     const[data2, setData2]=useState([])
+    const[data2One, setData2One]=useState({})
     const[content, setContent]=useState('')
     const[posts, setPosts]=useState([])
     const[pio, setPio]=useState('')
@@ -61,6 +62,7 @@ const OtherProfil=()=>{
         })
         const data2=await response.json();
         setData2(data2)
+        setData2One(data2[0])
     }
     const getFollowingEmails=async()=>{
         const response=await fetch('getfollowingemails/', {
@@ -583,8 +585,8 @@ const OtherProfil=()=>{
                                     <Modal visible={visibleShare} width="400px" height="auto" effect="fadeInUp" onClickAway={closeModalShare}>
                                         <div className="post container postScrollYClass" id={`postScrollY-${postShared.idPostsInPublic}`}>
                                             <div className="d-flex justify-content-start align-items-center flex-row">
-                                                <img style={{width :"50px", borderRadius :"50%"}} src={res.profilimage}/>
-                                                <h5 style={{textTransform :"capitalize", fontSize :"17px"}} className="ml-2">{res.name}</h5>
+                                                <img style={{width :"50px", borderRadius :"50%"}} src={data2One.profilimage}/>
+                                                <h5 style={{textTransform :"capitalize", fontSize :"17px"}} className="ml-2">{data2One.name}</h5>
                                             </div>
                                             <textarea className="form-control border-0 mt-1" placeholder="post content ...." rows="1" onChange={(e)=>setPio(e.target.value)} value={pio}/>
                                             <hr />

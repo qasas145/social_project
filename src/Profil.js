@@ -1066,7 +1066,7 @@ const Profil=()=>{
                                             <hr />
                                             <header>
                                                 <img style={{width :"50px"}} src={postShared.profilImage} className="img-fluid"/>
-                                                <h4>mohamed sayed</h4>
+                                                <h4>{postShared.name}</h4>
                                                 <p translate="yes" className="postPio">{postShared.pio}</p>
                                                 <p className="showMoreBtnS" onClick={(e)=>modifyLengthFunctionS(e.target, postShared.idPostsInPublic)}>show more ..</p>
                                             </header>
