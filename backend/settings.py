@@ -19,7 +19,7 @@ if os.path.isfile(dotenv_file):
 SECRET_KEY = 'django-insecure-+u&&*f)6(cah%^567z0#t5sefgf)$+e#1v6yq@&4m4574@#5f^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['react-dj-todoapp.herokuapp.com', '127.0.0.1:8000', 'localhost']
 ALLOWED_HOSTS = ['*']
