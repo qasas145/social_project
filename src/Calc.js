@@ -11,7 +11,9 @@ class Calc{
         if (year-this.year==0) {
             if (month-this.month==0) {
                 if ((day-this.day)==0) {
-                    if ((hour-this.hour)==0) return <div>{Math.abs(minute-this.minute)} m</div>
+                    if ((hour-this.hour)==0) return <div className="dateTimeDiv">{Math.abs(minute-this.minute)} m</div>
+                    else if (Math.abs(hour-this.hour)==1 && Math.abs(minute-this.minute)<=60) return <div className="dateTimeDiv">{Math.abs(minute-this.minute)}</div>
+                    else if (Math.abs(minute-this.minute)==59 || Math.abs(minute-this.minute)==60) return <div className="dateTimeDiv">{Math.abs(hour-this.hour)}</div>
                     return <div className="dateTimeDiv">{Math.abs(hour-this.hour)} h</div>
                 }
                 else {

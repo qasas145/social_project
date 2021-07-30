@@ -1252,13 +1252,9 @@ const Profil=()=>{
                     </Modal>
                     {/* end of the modal in that app the modal related to the post add */}
                     {/* this the section of the progress in that app */}
-                    <Modal visible={visibleProgress} width="400px" height="200px" effect="fadeInUp" onClickAway={closeModalProgess}>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-12 d-flex justify-content-center align-items-center p-5" style={{fontSize:"20px"}}>
-                                    Loading.....<CircularProgress className="ml-3" />
-                                </div>
-                            </div>
+                    <Modal visible={visibleProgress} width="400px" height="auto" effect="fadeInUp" onClickAway={closeModalProgess}>
+                        <div className="container bg-white border-rounded d-flex justify-content-center justify-content-center flex-row" style={{height :"100px"}}>
+                            Loading.....<CircularProgress className="ml-3" />
                         </div>
                     </Modal>
                     {/* end of that try of the modal */}
@@ -1370,9 +1366,9 @@ const Profil=()=>{
                                                     </section>
                                                     <GetSharedState post={post}/>
                                                     <ul className="row" id="l-c-s">
-                                                        <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<i className="fa fa-heart" aria-hidden="true"></i></li>
-                                                        <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<i className="fa fa-comment-o" aria-hidden="true"></i></li>
-                                                        <li onClick={(e)=>{setPostShared(post); openModalShare(post.idPostsInPublic);}} className="col-4 border-0">{post.shares}<i className="fa fa-share" aria-hidden="true"></i></li>
+                                                        <li onClick={(e)=>addLike(post.email, post.idPostsInPublic, e.currentTarget)} className="col-4 likeBtn">{post.likes}<i className="fa fa-heart ml-2" aria-hidden="true"></i></li>
+                                                        <li  data-toggle="collapse" data-target={`#collapseComments-${post.idPostsInPublic}`} className="col-4">{post.comments}<i className="fa fa-comment-o ml-2" aria-hidden="true"></i></li>
+                                                        <li onClick={(e)=>{setPostShared(post); openModalShare(post.idPostsInPublic);}} className="col-4 border-0">{post.shares}<i className="fa fa-share ml-2" aria-hidden="true"></i></li>
                                                     </ul>
                                                     <form onSubmit={(e)=>{e.preventDefault();AddComment(post.idPostsInPublic, post.email)}} className="form form-inline w-100 pt-2 pb-2 border-top">
                                                         <div className="container  d-flex justify-content-center">
@@ -1410,8 +1406,6 @@ const Profil=()=>{
                                             )
                                         })}
                                 </div>
-                                <div className="tab-pane" id="tab-3"></div>
-                                <div className="tab-pane" id="tab-4"></div>
                             </div>
                         </div>
                     </section>
