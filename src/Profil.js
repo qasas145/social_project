@@ -1252,8 +1252,8 @@ const Profil=()=>{
                     </Modal>
                     {/* end of the modal in that app the modal related to the post add */}
                     {/* this the section of the progress in that app */}
-                    <Modal visible={visibleProgress} width="400px" height="auto" effect="fadeInUp" onClickAway={closeModalProgess}>
-                        <div className="container bg-white border-rounded d-flex justify-content-center justify-content-center flex-row" style={{height :"100px"}}>
+                    <Modal visible={visibleProgress} height="auto" effect="fadeInUp" >
+                        <div className="container bg-white border-rounded d-flex justify-content-center align-items-center flex-row" style={{height :"auto", width :"400px", borderRadius :"10px", padding :"10px"}}>
                             Loading.....<CircularProgress className="ml-3" />
                         </div>
                     </Modal>
@@ -1406,6 +1406,8 @@ const Profil=()=>{
                                             )
                                         })}
                                 </div>
+                                <div className="tab-pane" id="tab-3"></div>
+                                <div className="tab-pane" id="tab-4"></div>
                             </div>
                         </div>
                     </section>

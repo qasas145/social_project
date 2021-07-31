@@ -251,6 +251,19 @@ const Messages=()=>{
             }
         }
     }
+    const MakeUlOptionsActivae=()=>{
+        const activeUl=document.getElementsByClassName('activeUlOptions')
+        if (activeUl[0]==undefined) {
+            console.log('we are in the state one')
+            const Ul=document.querySelector('.msgs-options-dropdown ul')
+            console.log(Ul)
+            Ul.classList.add('activeUlOptions')
+        }
+        else {
+            console.log('we are in the state two')
+            activeUl[0].classList.remove('activeUlOptions')
+        }
+    }
     useEffect(()=>{
         socket.on('connect', async()=>{
             const response=await fetch(endpoint+'updatestate/', {
@@ -431,9 +444,9 @@ const Messages=()=>{
                                                 </section>
                                             </section>
                                             <div className="text-center mr-2 d-flex justify-content-end align-items-end flex-column">
-                                                <i data-toggle="collapse" data-target="#dropdownList" style={{fontSize :"20px", cursor :"pointer"}} className="fa fa-ellipsis-v" aria-hidden="true"></i>
-                                                <div  className="msgs-options-dropdown collapse" id="dropdownList">
-                                                    <ul style={{backgroundColor :"white", borderRadius :"10px", padding :"5px"}} className="position-relative w-100 text-center list-unstyled">
+                                                <i onClick={MakeUlOptionsActivae} style={{fontSize :"20px", cursor :"pointer"}} className="fa fa-ellipsis-v" aria-hidden="true"></i>
+                                                <div className="msgs-options-dropdown" id="dropdownList">
+                                                    <ul  className="position-relative w-100 text-center list-unstyled">
                                                         <li onClick={(e)=>deleteChat(data)} className="text-center" style={{cursor :"pointer", textTransform :"capitalize"}}>delete chat </li>
                                                     </ul>
                                                 </div>

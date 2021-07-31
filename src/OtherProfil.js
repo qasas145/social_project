@@ -623,13 +623,9 @@ const OtherProfil=()=>{
                     })}
                     <hr />
                     {/* this the part related to the modal part in that app */}
-                    <Modal visible={visibleProgress} width="400px" height="200px" effect="fadeInUp" onClickAway={closeModalProgess}>
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-12 d-flex justify-content-center align-items-center p-5" style={{fontSize:"20px"}}>
-                                    Loading.....<CircularProgress className="ml-3" />
-                                </div>
-                            </div>
+                    <Modal visible={visibleProgress} height="auto" effect="fadeInUp" >
+                        <div className="container bg-white border-rounded d-flex justify-content-center align-items-center flex-row" style={{height :"auto", width :"400px", borderRadius :"10px", padding :"10px"}}>
+                            Loading.....<CircularProgress className="ml-3" />
                         </div>
                     </Modal>
                     {/* end of that try of the modal */}

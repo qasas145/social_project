@@ -308,6 +308,36 @@
     width: 80px;
 }
 /* end of that part */
+/* part f the drop down of the header hat in that app */
+.msgs-options-dropdown ul:hover 
+{
+    background-color: rgba(13, 130, 255, 0.809);
+} 
+.msgs-options-dropdown ul li 
+{
+    color: #fff;
+    font-weight: 500;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.msgs-options-dropdown ul.activeUlOptions 
+{
+    display: block;
+    transition: 1s ease-in-out;
+} 
+.msgs-options-dropdown ul 
+{   
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(43, 145, 253, 0.638);
+    box-shadow: 1px 1px 8px rgba(41, 41, 41, 0.275);
+    border-radius: 6px;
+    padding: 4px;
+    display: none;
+    transition: 1s ease-in-out;
+}
+/* end of that part */
 /* this the part of the style of the chat-header in that app */
 .main-data img 
 {
