@@ -1,10 +1,9 @@
-import React from "react"
+import React, {useEffect} from "react"
 import { Redirect } from "react-router";
 const Logout=()=>{
     let dateTime=new Date();
     const checkLogin=localStorage.getItem('email')
-    if (checkLogin==null) return (<Redirect to="login"/>)
-    window.addEventListener('beforeunload', async(e)=>{
+    const LogoutFunction=async()=>{
         const response=await fetch('updatestate/', {
             method :"POST",
             headers :{
@@ -23,10 +22,12 @@ const Logout=()=>{
         })
         const data=await response.json();
         console.log(data)
-        e.preventDefault();
-        e.returnValue="this the page of the messages in that app"
-    })
+    }
     localStorage.removeItem('email')
+    useEffect(()=>{
+        LogoutFunction();
+    })
+    if (checkLogin==null) return (<Redirect to="login"/>)
     return (
         <Redirect to="/login"/>
     )

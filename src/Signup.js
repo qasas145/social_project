@@ -38,7 +38,7 @@ const Signup=()=>{
             alert('choose profil image to manage signing up in tis app')
         }
         else {
-            const response=await fetch(endpoint+'signup/', {
+            const response=await fetch('signup/', {
                 method :"POST",
                 headers :{
                     "Content-Type" :"application/json",
@@ -113,7 +113,7 @@ const Signup=()=>{
                     <p>this a social media app where you can share your best moments on and share other's opinion, speaking with your best friends.</p>
                 </div>
                 <form data-aos="zoom-out" data-aos-delay="100" onSubmit={SignupFunction}>
-                    <input value={name} className="form-control" onChange={(e)=>setName(e.target.value)} placeholder="type your name :" type="text" required maxLength="15"/>
+                    <input value={name} className="form-control" onChange={(e)=>setName(e.target.value)} placeholder="type your name :" type="text" required maxLength="10"/>
                     <input value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control" type="email" maxLength="20" id="emailInp" placeholder="type your email :"/>
                     <input type="text" className="form-control" placeholder="type your username :" onChange={(e)=>setUserName(e.target.value)} value={userName} maxLength="15" required />
                     <input required className="form-control" placeholder="type your pio :" type="text" onChange={(e)=>setPio(e.target.value)} maxLength="20"/>
