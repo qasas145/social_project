@@ -110,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+PORT=8000
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
