@@ -5,7 +5,7 @@ django-api-view
 django-cors-headers
 django-heroku
 dnspython
-gunicorn
+gunicorn==20.1.0
 python-socketio
 python-engineio
 eventlet==0.30.2
@@ -17,3 +17,4 @@ dj-database-url
 whitenoise
 python-dotenv
 psycopg2-binary
+waitress
